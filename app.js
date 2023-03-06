@@ -30,8 +30,8 @@ app.get('/', function (req, res) {
 // 新增邏輯
 
 app.post('/', function (req, res) {
-  var content = req.body.content;
-  var contentRef = fireData.ref('todos').push();
+  const content = req.body.content;
+  const contentRef = fireData.ref('todos').push();
   contentRef.set({ content: content }).then(function () {
     fireData.ref('todos').once('value', function (snapshot) {
       res.send({
